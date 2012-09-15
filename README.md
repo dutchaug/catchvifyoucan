@@ -46,7 +46,7 @@ interesting new people along the way.
 [4]: http://www.dutchaug.org/members/32087982/ "Hans Dutch Android Usergroup profile page"
 [5]: http://www.dutchaug.org/members/24973812/ "Lorenzo Dutch Android Usergroup profile page"
 [6]: http://www.dutchaug.org/members/47468802/ "Daan Dutch Android Usergroup profile page"
-[7]: www.bouncespace.eu "Landing page for the Bounce Space venue"
+[7]: http://www.bouncespace.eu "Landing page for the Bounce Space venue"
 [8]: http://www.android.com/ "Homepage for Android"
 [9]: http://en.wikipedia.org/wiki/Scotland_Yard_%28board_game%29 "Wikipedia on Scotland Yard"
 [10]: http://en.wikipedia.org/wiki/Pacman "Wikipedia on Pac-Man"
