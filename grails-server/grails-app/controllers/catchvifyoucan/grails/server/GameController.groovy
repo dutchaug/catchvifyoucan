@@ -7,7 +7,7 @@ class GameController {
         redirect(action: "list")
     }
 
-    def allGames = {
+    def games = {
         def games = Game.findAll()
 
         return [ games: games ]

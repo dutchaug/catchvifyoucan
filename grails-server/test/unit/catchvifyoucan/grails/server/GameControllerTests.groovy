@@ -11,7 +11,7 @@ class GameControllerTests extends ControllerUnitTestCase {
     }
 
     void testAllGame() {
-        def model = this.controller.allGames()
+        def model = this.controller.games()
 
         assertEquals 2, model["games"].size
         assertEquals 1, model["games"][0].id
