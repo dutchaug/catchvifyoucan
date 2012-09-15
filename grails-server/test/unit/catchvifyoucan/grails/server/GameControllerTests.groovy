@@ -34,6 +34,14 @@ class GameControllerTests extends ControllerUnitTestCase {
         game.save()
     }
 
+    void testCreateAGame() {
+        this.controller.createGame()
+
+        def games = Game.findAll()
+
+        assertEquals 3, games.size()
+    }
+
     protected void tearDown() {
         super.tearDown()
     }

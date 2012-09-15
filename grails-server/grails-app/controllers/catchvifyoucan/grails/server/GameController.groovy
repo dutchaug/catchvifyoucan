@@ -19,4 +19,9 @@ class GameController {
         return [ players: game.players]
     }
 
+    def createGame = {
+        Game game = new Game()
+        game.save()
+    }
+
 }
