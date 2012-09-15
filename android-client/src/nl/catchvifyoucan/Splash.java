@@ -54,7 +54,7 @@ public class Splash extends Activity {
 		@Override
 		public void onFinish() {
 			finish();
-			startActivity(new Intent(Splash.this, MainActivity.class));
+			startActivity(new Intent(Splash.this, UserChoice.class));
 		}
 
 		@Override
