@@ -41,4 +41,8 @@ class TrailTests extends GrailsUnitTestCase {
         assert MOMENT, trail.locations[0].dateCreated
         assert LATER, trail.locations[2].dateCreated
     }
+
+    void tearDown() {
+        super.tearDown()
+    }
 }
