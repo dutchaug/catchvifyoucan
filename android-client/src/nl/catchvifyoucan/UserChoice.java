@@ -1,6 +1,7 @@
 package nl.catchvifyoucan;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
@@ -15,7 +16,7 @@ import android.widget.Toast;
 public class UserChoice extends Activity {
 
 	private Button register;
-	private ImageButton investigator, fugitive;
+	private Button investigator, fugitive;
 	private EditText name, email;
 	private String myID;
 	private String role;
@@ -24,7 +25,7 @@ public class UserChoice extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		app = (App) getApplication();
+		app = (App)getApplication();
 		setContentView(R.layout.user_choice);
 		init();
 	}
@@ -33,8 +34,8 @@ public class UserChoice extends Activity {
 
 		myID = Secure.getString(app.getContentResolver(), Secure.ANDROID_ID);
 
-		investigator = (ImageButton) findViewById(R.id.btn_investigator);
-		fugitive = (ImageButton) findViewById(R.id.btn_escapee);
+		investigator = (Button) findViewById(R.id.btn_investigator);
+		fugitive = (Button) findViewById(R.id.btn_escapee);
 		name = (EditText) findViewById(R.id.user_name);
 		email = (EditText) findViewById(R.id.user_email);
 		register = (Button) findViewById(R.id.register_user);
