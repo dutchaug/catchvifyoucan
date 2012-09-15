@@ -7,4 +7,6 @@ class Player {
     static constraints = {
         communicationId(nullabel: true)
     }
+
+    static belongsTo = [game : Game]
 }

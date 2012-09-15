@@ -1,0 +1,34 @@
+package catchvifyoucan.grails.server
+
+import grails.test.*
+
+class GameTests extends GrailsUnitTestCase {
+    private static int communicationId = 0
+
+    protected void setUp() {
+        super.setUp()
+        mockDomain(Game)
+    }
+
+    void testGameCreation() {
+        Game game = new Game()
+
+        assertNotNull game
+    }
+
+    void testAdditionOfPlayers() {
+        Game game = new Game()
+
+        game.addToPlayers(new Player(communicationId: nextCommunicationId()))
+
+        assert 1, game.players.size
+    }
+
+    protected void tearDown() {
+        super.tearDown()
+    }
+
+    private static final synchronized nextCommunicationId() {
+        return communicationId++
+    }
+}
