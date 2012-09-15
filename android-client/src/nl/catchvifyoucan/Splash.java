@@ -15,8 +15,6 @@ import android.os.CountDownTimer;
 public class Splash extends Activity {
 
 	private MyCount counter;
-	private final int SPLASH_TIME = 2000;
-	private final int SPLASH_STEP = 100;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +31,7 @@ public class Splash extends Activity {
 
 	@Override
 	protected void onResume() {
-		counter = new MyCount(SPLASH_TIME, SPLASH_STEP);
+		counter = new MyCount(Constants.SPLASH_TIME, Constants.SPLASH_STEP);
 		counter.start();
 		super.onResume();
 	}
