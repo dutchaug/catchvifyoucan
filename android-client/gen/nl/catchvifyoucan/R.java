@@ -21,6 +21,7 @@ public final class R {
         public static final int btn_escapee=0x7f050002;
         public static final int btn_investigator=0x7f050001;
         public static final int mainMV=0x7f050000;
+        public static final int register_user=0x7f050005;
         public static final int user_email=0x7f050004;
         public static final int user_name=0x7f050003;
     }
@@ -36,6 +37,7 @@ public final class R {
         public static final int user_name=0x7f040005;
         public static final int user_role_escapee=0x7f040004;
         public static final int user_role_investigator=0x7f040003;
+        public static final int user_send_data=0x7f040007;
         public static final int user_title=0x7f040002;
     }
 }
