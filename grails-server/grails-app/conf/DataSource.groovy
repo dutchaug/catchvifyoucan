@@ -23,10 +23,10 @@ environments {
             url = "jdbc:hsqldb:mem:testDb"
         }
     }
-    production {
-        dataSource {
-            dbCreate = "update"
-            url = "jdbc:hsqldb:file:prodDb;shutdown=true"
-        }
-    }
+//    production {
+//        dataSource {
+//            dbCreate = "update"
+//            url = "jdbc:hsqldb:file:prodDb;shutdown=true"
+//        }
+//    }
 }
