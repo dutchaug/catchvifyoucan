@@ -1,8 +1,7 @@
 package nl.catchvifyoucan;
 
+import nl.catchvifyoucan.dal.Requests;
 import android.app.Activity;
-import android.app.Application;
-import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.provider.Settings.Secure;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class UserChoice extends Activity {
@@ -60,7 +58,7 @@ public class UserChoice extends Activity {
 					break;
 				case R.id.register_user:
 					setUser();
-					startActivity(new Intent(UserChoice.this, MainActivity.class));
+//					startActivity(new Intent(UserChoice.this, MainActivity.class));
 					break;
 				default:
 					break;
@@ -76,5 +74,6 @@ public class UserChoice extends Activity {
 			edit.putString(Constants.SP_USER_EMAIL_LABEL, email.getText().toString());
 			edit.commit();
 		}
+		new Requests().getListOfGames();
 	}
 }
