@@ -1,7 +1,7 @@
 package catchvifyoucan.grails.server
 
 class Trail {
-    List locations
+    List locations = []
 
     static belongsTo = Player
 

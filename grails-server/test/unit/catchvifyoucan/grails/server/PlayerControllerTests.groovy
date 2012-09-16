@@ -26,7 +26,7 @@ class PlayerControllerTests extends ControllerUnitTestCase {
 
     void testAllLocations() {
         this.controller.params.gameId = 1
-        this.controller.params.communicationId = 1
+        this.controller.params.communicationId = "0"
 
         def model = this.controller.trail()
 
@@ -42,6 +42,15 @@ class PlayerControllerTests extends ControllerUnitTestCase {
 
         assertEquals Long.valueOf(0), model["longitude"]
         assertEquals Long.valueOf(0), model["latitude"]
+    }
+
+    void testCreationOfAPlayer() {
+        this.controller.params.gameId = 1
+        this.controller.params.communicationId = "new"
+
+        this.controller.createPlayer()
+
+        assertEquals 2, Game.findById(1).players.size()
     }
 
     protected void tearDown() {
