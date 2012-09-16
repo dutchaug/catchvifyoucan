@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.Settings.Secure;
 import android.view.View;
@@ -23,6 +24,8 @@ public class UserChoice extends Activity {
 	private Pattern pattern_name = Pattern.compile("[a-zA-Z]*");
 	private Pattern pattern_email = Pattern.compile("[a-zA-Z0-9]{2,40}\\@[a-zA-Z0-9]{2,40}\\.[a-zA-Z0-9]{2,40}");
 	private Matcher matcher_name, matcher_email;
+	private MediaPlayer investigator_sound;
+	private MediaPlayer fugitive_sound;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +38,12 @@ public class UserChoice extends Activity {
 	public void init() {
 
 		myID = Secure.getString(app.getContentResolver(), Secure.ANDROID_ID);
+		
+		fugitive_sound = MediaPlayer.create(app, R.raw.fugitive);
+		investigator_sound = MediaPlayer.create(app, R.raw.investigator);
 
 		investigator = (Button) findViewById(R.id.btn_investigator);
-		fugitive = (Button) findViewById(R.id.btn_escapee);
+		fugitive = (Button) findViewById(R.id.btn_fugitive);
 		name = (EditText) findViewById(R.id.user_name);
 		email = (EditText) findViewById(R.id.user_email);
 
@@ -53,12 +59,13 @@ public class UserChoice extends Activity {
 			matcher_email = pattern_email.matcher(email.getText().toString());
 
 			switch (v.getId()) {
-				case R.id.btn_escapee:
+				case R.id.btn_fugitive:
 					Toast.makeText(app, "Fugitive", Toast.LENGTH_SHORT).show();
 					role = Constants.FUGITIVE;
 
 					if (texValidator()) {
 						setUser();
+						fugitive_sound.start();
 						startActivity(new Intent(UserChoice.this, MainActivity.class));
 					}
 					break;
@@ -68,6 +75,7 @@ public class UserChoice extends Activity {
 
 					if (texValidator()) {
 						setUser();
+						investigator_sound.start();
 						startActivity(new Intent(UserChoice.this, MainActivity.class));
 					}
 					break;
