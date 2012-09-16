@@ -1,8 +1,6 @@
 package nl.catchvifyoucan;
 
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -10,9 +8,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.telephony.TelephonyManager;
-import android.widget.Toast;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -26,13 +22,11 @@ public class MainActivity extends MapActivity {
 	private MyItemizedOverlay itemizedoverlay;
 	private OverlayItem overlayitem;
 	private List<Overlay> mapOverlays;
-	private Handler mHandler;
 	private com.google.android.maps.MapView mapView;
 	private int longitude = 0;
 	private int latitude = 0;
 	private String imei = null;
 	int updated = 0;
-	
 
 	private static final double LOCATIONMULTIPLIER = 1000000.0;
 
@@ -59,8 +53,10 @@ public class MainActivity extends MapActivity {
 		Location location = locationManager
 				.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
-		/** Every 10 seconds we want an update of the location 
-		 * the distance is set to zero meters*/
+		/**
+		 * Every 10 seconds we want an update of the location the distance is
+		 * set to zero meters
+		 */
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
 				10 * 1000, 0, new MyLocationListener());
 
@@ -88,28 +84,24 @@ public class MainActivity extends MapActivity {
 
 		/** Add the array of overlayitems to the map */
 		mapOverlays.add(itemizedoverlay);
-		
-		/**Get the Imei number to give to the server*/
+
+		/** Get the Imei number to give to the server */
 		setImeiNumber();
-		
-		/**Send all necesary data to the server*/
+
+		/** Send all necesary data to the server */
 		pushPosition();
-		
-		/**Set a repeating task to send updates to the server*/
-		mHandler = new Handler();
-		mHandler.removeCallbacks(mUpdateTimeTask);
-		mHandler.postDelayed(mUpdateTimeTask, 5000);
-		
-		
+
 	}
 
 	private void updateLocation(Location location) {
+		
+
+		updated += 1;
+		
 		/**
 		 * Google maps GeoPoint coordinates are specified in microdegrees
 		 * (degrees * 1e6)
 		 */
-
-		updated += 1;
 
 		latitude = (int) (location.getLatitude() * LOCATIONMULTIPLIER);
 		longitude = (int) (location.getLongitude() * LOCATIONMULTIPLIER);
@@ -134,21 +126,19 @@ public class MainActivity extends MapActivity {
 				mapView.invalidate();
 			}
 		});
+		
+		pushPosition();
 	}
 
 	private void pushPosition() {
-		/**The timer is calling this method every minute*/
+		/** Called on every positionupdate*/
 		LocationDataManager dm = new LocationDataManager();
 		dm.pushLocationToServer(imei, latitude, longitude);
-		Toast.makeText(this, "Timer", Toast.LENGTH_SHORT).show();
+		
 	}
-
-
-	
 
 	@Override
 	protected boolean isRouteDisplayed() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -158,15 +148,21 @@ public class MainActivity extends MapActivity {
 		imei = telman.getDeviceId();
 	}
 
-	
-	private Runnable mUpdateTimeTask = new Runnable() {
-		
-		@Override
-		public void run() {
-			pushPosition();
-			mHandler.postAtTime(this, 15000);
-		}
-	};
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+	}
 
 	private class MyLocationListener implements LocationListener {
 
@@ -195,5 +191,7 @@ public class MainActivity extends MapActivity {
 			// Do something here if you would like to know when the provider
 			// status changes
 		}
+
 	}
+
 }

@@ -57,7 +57,7 @@ public class UserChoice extends Activity {
 		public void onClick(View v) {
 			matcher_name = pattern_name.matcher(name.getText().toString());
 			matcher_email = pattern_email.matcher(email.getText().toString());
-
+			startActivity(new Intent(UserChoice.this, MainActivity.class));
 			switch (v.getId()) {
 				case R.id.btn_fugitive:
 					Toast.makeText(app, "Fugitive", Toast.LENGTH_SHORT).show();
