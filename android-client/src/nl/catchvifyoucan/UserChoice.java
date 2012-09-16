@@ -3,6 +3,9 @@ package nl.catchvifyoucan;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import nl.catchvifyoucan.dal.GetListOfGames;
+import nl.catchvifyoucan.dal.RequestsTasks;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
@@ -106,6 +109,6 @@ public class UserChoice extends Activity {
 			edit.putString(Constants.SP_USER_EMAIL_LABEL, email.getText().toString());
 			edit.commit();
 		}
-//		new Requests().getListOfGames();
+		new RequestsTasks().execute(new GetListOfGames());
 	}
 }
