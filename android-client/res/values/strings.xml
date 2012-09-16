@@ -2,4 +2,10 @@
 <resources>
     <string name="hello">Hello World</string>
     <string name="app_name">CatchVifyoucan</string>
+    <string name="user_title">Insert your information please</string>
+    <string name="user_role_investigator">Investigator</string>
+    <string name="user_role_escapee">Fugitive</string>
+    <string name="user_name">Name:</string>
+    <string name="user_email">E-Mail:</string>
+    <string name="user_send_data">Register</string>
 </resources>
