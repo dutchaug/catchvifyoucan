@@ -12,7 +12,7 @@ class GameController {
     def games = {
         def games = Game.findAll()
 
-        def result = [ games: games ]
+        def result = [ games: games.collect { it.id } ]
         withFormat {
             html {
                 return result
@@ -27,7 +27,7 @@ class GameController {
     def game = {
         def game = Game.findById(params.gameId)
 
-        def result = [ players: game.players]
+        def result = [ players: game.players.collect { it.playerId }]
         withFormat {
             html {
                 return result
