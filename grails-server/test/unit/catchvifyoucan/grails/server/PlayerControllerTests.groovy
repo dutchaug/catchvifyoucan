@@ -53,6 +53,18 @@ class PlayerControllerTests extends ControllerUnitTestCase {
         assertEquals 2, Game.findById(1).players.size()
     }
 
+    void testAddALocation() {
+        this.controller.params.gameId = 1
+        this.controller.params.playerId = "0"
+        this.controller.params.longitude = Long.valueOf(1)
+        this.controller.params.latitude = Long.valueOf(0)
+
+        this.controller.addLocation()
+
+        assertEquals 4, Player.findByPlayerId("0").trail.locations.size()
+
+    }
+
     protected void tearDown() {
         super.tearDown()
     }

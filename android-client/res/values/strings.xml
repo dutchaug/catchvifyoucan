@@ -7,5 +7,6 @@
     <string name="user_role_escapee">Fugitive</string>
     <string name="user_name">Name:</string>
     <string name="user_email">E-Mail:</string>
-    <string name="user_send_data">Register</string>
+    <string name="error_name">Check your name (only letters allowed)</string>
+    <string name="error_email">Check your email (**@**.** format)</string>
 </resources>

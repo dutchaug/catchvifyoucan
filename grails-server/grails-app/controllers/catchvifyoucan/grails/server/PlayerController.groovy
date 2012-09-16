@@ -1,5 +1,7 @@
 package catchvifyoucan.grails.server
 
+import grails.converters.JSON
+
 class PlayerController {
     def scaffold = true
 
@@ -11,7 +13,16 @@ class PlayerController {
         Game game = Game.findById(params.gameId)
         Player player = Player.findByPlayerId(params.playerId)
 
-        return [ trail :  player?.trail.locations.collect {[ latitude : it.latitude, longitude : it.longitude]} ]
+        def result = [ trail :  player?.trail.locations.collect {[ latitude : it.latitude, longitude : it.longitude]} ]
+        withFormat {
+            html {
+                return result
+            }
+            json {
+                render result as JSON
+            }
+        }
+
     }
 
     def location = {
@@ -20,7 +31,15 @@ class PlayerController {
 
         Location location = player.trail.locations[params.locationIndex]
 
-        return [ longitude: location.longitude, latitude: location.latitude]
+        def result = [ longitude: location.longitude, latitude: location.latitude]
+        withFormat {
+            html {
+                return result
+            }
+            json {
+                render result as JSON
+            }
+        }
     }
 
     def createPlayer = {
@@ -32,5 +51,35 @@ class PlayerController {
             game.addToPlayers(player)
             game.save()
         //}
+
+        def result = [ status : "ok" ]
+        withFormat {
+            html {
+                return result
+            }
+            json {
+                render result as JSON
+            }
+        }
+    }
+
+    def addLocation = {
+        Game game = Game.findById(params.gameId)
+        Player player = Player.findByPlayerId(params.playerId)
+
+        Location location = new Location(longitude: Long.valueOf(params.longitude), latitude: Long.valueOf(params.latitude))
+
+        player.trail.addToLocations(location)
+        player.save()
+
+        def result = [ status: "ok" ]
+        withFormat {
+            html {
+                return result
+            }
+            json {
+                render result as JSON
+            }
+        }
     }
 }
