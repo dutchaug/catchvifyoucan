@@ -5,7 +5,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical" >
 
         <TextView
@@ -19,40 +19,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="15dp" >
-
-            <Button
-                android:id="@+id/btn_investigator"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:drawableBottom="@drawable/investigator"
-                android:text="@string/user_role_investigator" />
-
-            <Button
-                android:id="@+id/btn_escapee"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:drawableBottom="@drawable/escapee"
-                android:text="@string/user_role_escapee" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:gravity="center_vertical"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp" >
+                android:layout_marginTop="20dp"
+                android:orientation="vertical" >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -69,9 +45,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp" >
+                android:layout_marginTop="20dp"
+                android:orientation="vertical" >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -90,15 +65,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:gravity="center_vertical"
-            android:orientation="vertical" >
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
 
-            <Button android:id="@+id/register_user"
-                android:layout_width="fill_parent"
+            <Button
+                android:id="@+id/btn_investigator"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:text="@string/user_send_data" />
+                android:layout_weight="0.5"
+                android:drawableBottom="@drawable/investigator"
+                android:text="@string/user_role_investigator" />
+
+            <Button
+                android:id="@+id/btn_fugitive"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:drawableBottom="@drawable/escapee"
+                android:text="@string/user_role_escapee" />
         </LinearLayout>
     </LinearLayout>
 

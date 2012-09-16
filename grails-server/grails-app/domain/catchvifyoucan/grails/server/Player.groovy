@@ -1,11 +1,11 @@
 package catchvifyoucan.grails.server
 
 class Player {
-    String communicationId
+    String playerId
     Trail trail = new Trail()
 
     static constraints = {
-        communicationId(nullabel: true)
+        playerId(nullabel: true)
     }
 
     static belongsTo = [game : Game]
