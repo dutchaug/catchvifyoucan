@@ -14,8 +14,8 @@ class UrlMappings {
             action = [GET: "trail", PUT: "createPlayer", POST: "addLocation"]
         }
         "/api/game/$gameId/$playerId/$locationIndex"{
-            controller:"player"
-            action:"location"
+            controller = "player"
+            action = "location"
         }
         "/$controller/$action?/$id?"{
             constraints {

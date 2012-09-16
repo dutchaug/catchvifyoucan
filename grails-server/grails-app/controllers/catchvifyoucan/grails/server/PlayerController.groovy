@@ -67,7 +67,10 @@ class PlayerController {
         Game game = Game.findById(params.gameId)
         Player player = Player.findByPlayerId(params.playerId)
 
-        Location location = new Location(longitude: Long.valueOf(params.longitude), latitude: Long.valueOf(params.latitude))
+        Long latitude = Long.valueOf(params.latitude)
+        Long longitude = Long.valueOf(params.longitude)
+        Location location = new Location(longitude: longitude, latitude: latitude)
+        location.save()
 
         player.trail.addToLocations(location)
         player.save()
