@@ -5,7 +5,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical" >
 
         <TextView
@@ -19,16 +19,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:gravity="center_vertical"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp" >
+                android:layout_marginTop="20dp"
+                android:orientation="vertical" >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -45,9 +45,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp" >
+                android:layout_marginTop="20dp"
+                android:orientation="vertical" >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -62,12 +61,14 @@
             </LinearLayout>
         </LinearLayout>
 
-         <LinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="15dp" >
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
 
             <Button
                 android:id="@+id/btn_investigator"
@@ -78,7 +79,7 @@
                 android:text="@string/user_role_investigator" />
 
             <Button
-                android:id="@+id/btn_escapee"
+                android:id="@+id/btn_fugitive"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
