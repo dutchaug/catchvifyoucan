@@ -2,10 +2,8 @@ package nl.catchvifyoucan;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import nl.catchvifyoucan.dal.GetListOfGames;
 import nl.catchvifyoucan.dal.RequestsTasks;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
@@ -16,7 +14,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class UserChoice extends Activity {
 
@@ -42,7 +39,7 @@ public class UserChoice extends Activity {
 	public void init() {
 
 		myID = Secure.getString(app.getContentResolver(), Secure.ANDROID_ID);
-		
+
 		fugitive_sound = MediaPlayer.create(app, R.raw.fugitive);
 		investigator_sound = MediaPlayer.create(app, R.raw.investigator);
 
@@ -64,7 +61,6 @@ public class UserChoice extends Activity {
 
 			switch (v.getId()) {
 				case R.id.btn_fugitive:
-					Toast.makeText(app, "Fugitive", Toast.LENGTH_SHORT).show();
 					role = Constants.FUGITIVE;
 
 					if (texValidator()) {
@@ -74,7 +70,6 @@ public class UserChoice extends Activity {
 					}
 					break;
 				case R.id.btn_investigator:
-					Toast.makeText(app, "Investigator", Toast.LENGTH_SHORT).show();
 					role = Constants.INVESTIGATOR;
 
 					if (texValidator()) {
