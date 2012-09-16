@@ -41,6 +41,16 @@ class GameController {
     def createGame = {
         Game game = new Game()
         game.save()
+
+        def result = [ status: "ok" ]
+        withFormat {
+            html {
+                return result
+            }
+            json {
+                render result as JSON
+            }
+        }
     }
 
 }

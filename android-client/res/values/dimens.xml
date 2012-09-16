@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="app_txt_dimension">18dp</dimen>
+    <dimen name="app_edittxt_dimension">15dp</dimen>
+    <dimen name="user_choice_padding">15dp</dimen>
+    <dimen name="user_choice_marginTop">20dp</dimen>
+
+</resources>

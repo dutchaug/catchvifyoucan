@@ -51,6 +51,16 @@ class PlayerController {
             game.addToPlayers(player)
             game.save()
         //}
+
+        def result = [ status : "ok" ]
+        withFormat {
+            html {
+                return result
+            }
+            json {
+                render result as JSON
+            }
+        }
     }
 
     def addLocation = {
@@ -61,5 +71,15 @@ class PlayerController {
 
         player.trail.addToLocations(location)
         player.save()
+
+        def result = [ status: "ok" ]
+        withFormat {
+            html {
+                return result
+            }
+            json {
+                render result as JSON
+            }
+        }
     }
 }

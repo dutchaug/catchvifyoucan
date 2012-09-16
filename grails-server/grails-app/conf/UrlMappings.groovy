@@ -3,7 +3,7 @@ class UrlMappings {
 	static mappings = {
         "/api/game"{
             controller = "game"
-            action = "games"//[GET: "games", POST: "createGame"]
+            action = [GET: "games", POST: "createGame"]
         }
         "/api/game/$gameId"{
             controller ="game"
