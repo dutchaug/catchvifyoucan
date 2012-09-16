@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.provider.Settings.Secure;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -19,11 +18,10 @@ public class UserChoice extends Activity {
 
 	private Button investigator, fugitive;
 	private EditText name, email;
-	private String myID;
 	private String role;
 	private App app;
 	private Pattern pattern_name = Pattern.compile("[a-zA-Z]*");
-	private Pattern pattern_email = Pattern.compile("[a-zA-Z0-9]{2,40}\\@[a-zA-Z0-9]{2,40}\\.[a-zA-Z0-9]{2,40}");
+	private Pattern pattern_email = Pattern.compile("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+");
 	private Matcher matcher_name, matcher_email;
 	private MediaPlayer investigator_sound;
 	private MediaPlayer fugitive_sound;
@@ -37,9 +35,6 @@ public class UserChoice extends Activity {
 	}
 
 	public void init() {
-
-		myID = Secure.getString(app.getContentResolver(), Secure.ANDROID_ID);
-
 		fugitive_sound = MediaPlayer.create(app, R.raw.fugitive);
 		investigator_sound = MediaPlayer.create(app, R.raw.investigator);
 
@@ -85,7 +80,7 @@ public class UserChoice extends Activity {
 	};
 
 	public boolean texValidator() {
-		if (!matcher_name.matches()) {
+		if (!matcher_name.matches() || name.length() < 2) {
 			name.setError(getResources().getString(R.string.error_name));
 			return false;
 		} else if (!matcher_email.matches()) {

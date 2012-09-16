@@ -6,9 +6,9 @@
     <string name="user_role_investigator">Investigator</string>
     <string name="user_role_escapee">Fugitive</string>
     <string name="user_name">Name:</string>
-    <string name="user_name_hint">Insert your name (only letters allowed)</string>
+    <string name="user_name_hint">Insert your name</string>
     <string name="user_email">E-Mail:</string>
-    <string name="user_email_hint">Insert your email (**@**.** format)</string>
-    <string name="error_name">Check your name (only letters allowed)</string>
+    <string name="user_email_hint">Insert your email</string>
+    <string name="error_name">Check your name (min 2 letters)</string>
     <string name="error_email">Check your email (**@**.** format)</string>
 </resources>

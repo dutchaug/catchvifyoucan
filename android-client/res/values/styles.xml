@@ -7,6 +7,7 @@
         <item name="android:maxLines">1</item>
         <item name="android:background">@color/white</item>
         <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
         <item name="android:textSize">@dimen/app_txt_dimension</item>
         <item name="android:ellipsize">marquee</item>
     </style>
