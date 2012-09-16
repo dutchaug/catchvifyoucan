@@ -9,7 +9,7 @@ class TrailController {
 
     def addLocation = {
         Game game = Game.findById(params.gameId)
-        Player player = Player.findByCommunicationId(params.communicationId)
+        Player player = Player.findByPlayerId(params.playerId)
 
         Location location = new Location(longitude: Long.valueOf(params.longitude), latitude: Long.valueOf(params.latitude))
 

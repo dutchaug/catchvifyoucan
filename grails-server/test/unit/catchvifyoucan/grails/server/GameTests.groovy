@@ -3,7 +3,7 @@ package catchvifyoucan.grails.server
 import grails.test.*
 
 class GameTests extends GrailsUnitTestCase {
-    private static int communicationId = 0
+    private static int playerId = 0
 
     protected void setUp() {
         super.setUp()
@@ -19,7 +19,7 @@ class GameTests extends GrailsUnitTestCase {
     void testAdditionOfPlayers() {
         Game game = new Game()
 
-        game.addToPlayers(new Player(communicationId: nextCommunicationId()))
+        game.addToPlayers(new Player(playerId: nextPlayerId()))
 
         assert 1, game.players.size
     }
@@ -28,7 +28,7 @@ class GameTests extends GrailsUnitTestCase {
         super.tearDown()
     }
 
-    private static final synchronized nextCommunicationId() {
-        return communicationId++
+    private static final synchronized nextPlayerId() {
+        return playerId++
     }
 }

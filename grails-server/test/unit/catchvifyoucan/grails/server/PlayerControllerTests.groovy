@@ -7,7 +7,7 @@ class PlayerControllerTests extends ControllerUnitTestCase {
         super.setUp()
         mockDomain(Game, [new Game()])
 
-        mockDomain(Player, [new Player(communicationId: "0")])
+        mockDomain(Player, [new Player(playerId: "0")])
         Game game = Game.findById(1)
         game.addToPlayers(Player.findById(1))
         game.save()
@@ -26,7 +26,7 @@ class PlayerControllerTests extends ControllerUnitTestCase {
 
     void testAllLocations() {
         this.controller.params.gameId = 1
-        this.controller.params.communicationId = "0"
+        this.controller.params.playerId = "0"
 
         def model = this.controller.trail()
 
@@ -35,7 +35,7 @@ class PlayerControllerTests extends ControllerUnitTestCase {
 
     void testSingleLocations() {
         this.controller.params.gameId = 1
-        this.controller.params.communicationId = 1
+        this.controller.params.playerId = 1
         this.controller.params.locationIndex = 0
 
         def model = this.controller.location()
@@ -46,7 +46,7 @@ class PlayerControllerTests extends ControllerUnitTestCase {
 
     void testCreationOfAPlayer() {
         this.controller.params.gameId = 1
-        this.controller.params.communicationId = "new"
+        this.controller.params.playerId = "new"
 
         this.controller.createPlayer()
 

@@ -3,24 +3,24 @@ package catchvifyoucan.grails.server
 import grails.test.*
 
 class PlayerTests extends GrailsUnitTestCase {
-    private static final String COMMUNICATION_ID = "000000000000000"
+    private static final String PLAYER_ID = "000000000000000"
 
     protected void setUp() {
         super.setUp()
         mockDomain(Player)
     }
 
-    void testCommunicationIdIsNotOptional() {
+    void testPlayerIdIsNotOptional() {
         Player player = new Player()
 
         player.save()
 
         assertTrue player.hasErrors()
-        assertEquals "nullable", player.errors.getFieldError("communicationId").code
+        assertEquals "nullable", player.errors.getFieldError("playerId").code
     }
 
     void testTrailIsNotOptional() {
-        Player player = new Player(communicationId: COMMUNICATION_ID, trail : null)
+        Player player = new Player(playerId: PLAYER_ID, trail : null)
 
         player.save()
 

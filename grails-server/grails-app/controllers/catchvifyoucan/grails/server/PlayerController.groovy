@@ -9,14 +9,14 @@ class PlayerController {
 
     def trail = {
         Game game = Game.findById(params.gameId)
-        Player player = Player.findByCommunicationId(params.communicationId)
+        Player player = Player.findByPlayerId(params.playerId)
 
         return [ trail :  player?.trail.locations.collect {[ latitude : it.latitude, longitude : it.longitude]} ]
     }
 
     def location = {
         Game game = Game.findById(params.gameId)
-        Player player = Player.findById(params.communicationId)
+        Player player = Player.findById(params.playerId)
 
         Location location = player.trail.locations[params.locationIndex]
 
@@ -24,7 +24,7 @@ class PlayerController {
     }
 
     def createPlayer = {
-        Player player = new Player(communicationId: params.communicationId)
+        Player player = new Player(playerId: params.playerId)
         player.save()
 
        //if (!player.hasErrors()) {

@@ -7,7 +7,7 @@ class TrailControllerTests extends ControllerUnitTestCase {
         super.setUp()
         mockDomain(Game, [new Game()])
 
-        mockDomain(Player, [new Player(communicationId: "0")])
+        mockDomain(Player, [new Player(playerId: "0")])
         Game game = Game.findById(1)
         game.addToPlayers(Player.findById(1))
         game.save()
@@ -26,13 +26,13 @@ class TrailControllerTests extends ControllerUnitTestCase {
 
     void testAdditionOfLocation() {
         this.controller.params.gameId = 1
-        this.controller.params.communicationId = "0"
+        this.controller.params.playerId = "0"
         this.controller.params.longitude = Long.valueOf(1)
         this.controller.params.latitude = Long.valueOf(0)
 
         this.controller.addLocation()
 
-        assertEquals 4, Player.findByCommunicationId("0").trail.locations.size()
+        assertEquals 4, Player.findByPlayerId("0").trail.locations.size()
 
     }
 
