@@ -14,7 +14,7 @@ class GameController {
     }
 
     def game = {
-        def game = Game.findById(params.id)
+        def game = Game.findById(params.gameId)
 
         return [ players: game.players]
     }

@@ -20,7 +20,7 @@ class GameControllerTests extends ControllerUnitTestCase {
     void testPlayersInGame() {
         addPlayersTo(1, [new Player(playerId: "0"), new Player(playerId: "1")])
 
-        this.controller.params.id = 1
+        this.controller.params.gameId = 1
         def model = this.controller.game()
 
         assertEquals 2, model["players"].size()
